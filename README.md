@@ -1,9 +1,10 @@
 # chapter-6.1
 Big Data - DevOps training chapter 6
-<hr><hr>  
+<hr>
 
 # task 1  
 
+First things first! let's update our repositories and see what packages we have!  
 
 ```bash
 apt-get update;
