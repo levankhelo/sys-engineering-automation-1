@@ -9,7 +9,7 @@ Big Data - DevOps training chapter 6
 apt-get update;
 ```  
 
-### Installing ansible  
+## Installing ansible  
 
 **Using apt**  
 
@@ -17,27 +17,28 @@ apt-get update;
 ```bash
 sudo apt-get install -y ansible;
 ```  
-
+or  
 *Install for single user*  
 ```bash
 sudo apt install -y ansible;
 ```  
 
 **Using source**  
+use this method, if above one fails
 ```bash
 sudo apt-get install -y git;
 git clone git://github.com/ansible/ansible.git && cd ./ansible;
 source ./hacking/env-setup;
 ```  
 > Note: you will have access to ansible commands only from terminal tabs/windows, that are sourcing *ansible's* `hacking/env-setup`  
-**Check installation**
+**Check Ansible installation**
 
 ```bash
 if command -v ansible &> /dev/null; then echo "ansible successfully installed"; else echo "failed to install ansible"; fi
 ```
 
 
-### Installing Packer  
+## Installing Packer  
 
 **Using apt**  
 
@@ -45,7 +46,7 @@ if command -v ansible &> /dev/null; then echo "ansible successfully installed"; 
 ```bash
 sudo apt-get install -y packer
 ```  
-
+or  
 *Install for single user*
 ```bash
 sudo apt install -y packer
@@ -71,15 +72,25 @@ sudo apt-get update && sudo apt install packer;
 ```  
 
 
-**Check installation**
+**Check Packer installation**
 
 ```bash
 if command -v packer &> /dev/null; then echo "packer successfully installed"; else echo "failed to install packer"; fi
 ```
 
 
+## Installing Terraform
 
+```bash
+sudo apt-get install -y unzip;
+wget https://releases.hashicorp.com/terraform/0.15.0/terraform_0.15.0_linux_amd64.zip;
+unzip terraform*.zip;
+sudo mv terraform /usr/local/bin;
+rm terraform*.zip; 
+```
+> - Note: Version of Terraform might be different! look for correct version (here)[https://www.terraform.io/downloads.html]
 
+**Check Terraform installation**
 
 ```bash
 if command -v terraform &> /dev/null; then echo "terraform successfully installed"; else echo "failed to install terraform"; fi
