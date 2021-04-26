@@ -10,7 +10,7 @@ First things first! let's update our repositories and see what packages we have!
 apt-get update;
 ```  
 
-## Installing ansible  
+## Step 1: Installing ansible  
 
 **Using apt**  
 
@@ -39,7 +39,7 @@ if command -v ansible &> /dev/null; then echo "ansible successfully installed"; 
 ```
 
 
-## Installing Packer  
+## Step 2: Installing Packer  
 
 **Using apt**  
 
@@ -80,7 +80,7 @@ if command -v packer &> /dev/null; then echo "packer successfully installed"; el
 ```
 
 
-## Installing Terraform
+## Step 3: Installing Terraform
 
 ```bash
 sudo apt-get install -y unzip;
