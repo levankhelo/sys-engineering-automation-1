@@ -88,7 +88,7 @@ wget https://releases.hashicorp.com/terraform/0.15.0/terraform_0.15.0_linux_amd6
 unzip terraform*.zip;
 sudo mv terraform /usr/local/bin;
 rm terraform*.zip; 
-```(
+```
 > - Note: Version of Terraform might be different! look for correct version [here](https://www.terraform.io/downloads.html)
 
 **Check Terraform installation**
