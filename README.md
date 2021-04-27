@@ -2,7 +2,7 @@
 Big Data - DevOps training chapter 6
 <hr>
 
-# task 1  
+# Installations 
 
 First things first! let's update our repositories and see what packages we have!  
 
@@ -98,10 +98,12 @@ if command -v terraform &> /dev/null; then echo "terraform successfully installe
 ```
 
 
+# Summary
+All steps from **Installations** are wrapped up in `provision-master.sh` file in current repository
 
 
 
-# Actions
+# Environment & Connections
 
 ## General
 
@@ -150,3 +152,25 @@ and check to make sure that only the key(s) you wanted were added.
 > Note: for all non-master ip's that we are going to control
 
 
+# Ansible  
+
+Now that everything is set up, you can go in `/etc/ansible/hosts` file as `root` and add your *slave* device ip addresses
+> note: you can use `sudo nano /etc/ansible/hosts`
+
+After appending slave ip addresses, your `/etc/ansible/hosts` should look like this
+> Note: it may be different, based on where you have added ip addresses. In this case, we ate adding them at the top
+
+```bash
+192.168.56.102 
+192.168.56.104 
+# more ip adresses
+
+
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+...
+```
+> Note: remember that ip adresses can be different in your case
