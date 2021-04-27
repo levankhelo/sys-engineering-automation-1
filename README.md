@@ -96,3 +96,53 @@ rm terraform*.zip;
 ```bash
 if command -v terraform &> /dev/null; then echo "terraform successfully installed"; else echo "failed to install terraform"; fi
 ```
+
+
+
+
+
+# Actions
+
+## General
+
+### Setup
+in current state, we have few VirtualBox instances  
+1 **Master** and few **Slave**.  
+On VirtualBox we have shared network that we created from virtual box's settings
+> *FIle* -> *Host Network Manager* settings
+> Add network mode *Host* to all virtual box instances so they will be on same, shared network.
+
+In my case, VirualBox's network is `192.168.56.100`.  
+It means that each device i add, will be adding up at the end like: `192.168.56.101`, `192.168.56.102`, `192.168.56.103` and so on.  
+
+In this example, `192.168.56.101` is Master device when `192.168.56.102` and `192.168.56.103` are slave devices.
+
+### Generate ssh-keys for connection
+
+Run following command only on *Master* device:
+```bash
+ssh-keygen
+```
+and keep clicking enter on all prompts.
+
+
+### Copy ssh public key for passwordless connection
+
+Run following command on Master device:
+```bash
+ssh-copy-id slave@192.168.56.102
+```
+> Note: provide password when asked
+```
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+slave@192.168.56.102's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'slave@192.168.56.102'"
+and check to make sure that only the key(s) you wanted were added.
+```
+
+**Important**: Repeat this process (`ssh-copy-id`) for each slave device!
+> Note: for all non-master ip's that we are going to control
