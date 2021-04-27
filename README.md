@@ -117,6 +117,8 @@ It means that each device i add, will be adding up at the end like: `192.168.56.
 
 In this example, `192.168.56.101` is Master device when `192.168.56.102` and `192.168.56.103` are slave devices.
 
+> note: if you don't know exact ip address of your slave devices run `ip a` command and look for something like `192.168.***.***` where `*` can be any number. or look for ip address under `enp0s*`, where `*` is any number, after running `ip a`
+
 ### Generate ssh-keys for connection
 
 Run following command only on *Master* device:
