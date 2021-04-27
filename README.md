@@ -148,3 +148,5 @@ and check to make sure that only the key(s) you wanted were added.
 
 **Important**: Repeat this process (`ssh-copy-id`) for each slave device!
 > Note: for all non-master ip's that we are going to control
+
+
