@@ -1,0 +1,12 @@
+
+# # # # # # # # # # # # #
+#  vbox network hosts   #
+#   #    #    #    #    # 
+#    username: slave    #
+# # # # # # # # # # # # #
+
+# slave device 1
+192.168.56.102 
+
+# slave device 2
+192.168.56.103
