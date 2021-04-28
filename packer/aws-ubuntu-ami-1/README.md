@@ -1,12 +1,12 @@
 # Execution results
 
-Command
+### Command
 
-```log
+```bash
 packer build firstrun.pkr.hcl
 ```
 
-Log
+### Log
 
 ```ruby
 amazon-ebs.firstrun: output will be in this color.
@@ -60,3 +60,6 @@ Build 'amazon-ebs.firstrun' finished after 4 minutes 37 seconds.
 us-east-1: ami-0e16fbca691ae13ef
 
 ```
+
+### Results
+
