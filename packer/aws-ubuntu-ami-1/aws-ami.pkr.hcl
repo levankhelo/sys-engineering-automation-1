@@ -8,9 +8,8 @@ variable "region" {
   default = "us-east-1"
 }
 
-
 source "amazon-ebs" "firstrun" {
-  ami_name      = "packer-linux-aws-demo"
+  ami_name      = "levan ubuntu from packer"
   instance_type = "t2.micro"
   region        = "${var.region}"
   source_ami_filter {
@@ -30,12 +29,12 @@ build {
 
   provisioner "file" {
     destination = "/home/ubuntu/"
-    source      = "./welcome.txt"
+    source      = "./transfer/welcome.txt"
   }
   provisioner "shell" {
     inline = ["ls -al /home/ubuntu", "cat /home/ubuntu/welcome.txt"]
   }
   provisioner "shell" {
-    script = "./example.sh"
+    script = "./transfer/example.sh"
   }
 }
