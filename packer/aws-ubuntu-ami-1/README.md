@@ -1,12 +1,12 @@
 # Execution results
 
-### Command
+## Command
 
 ```bash
 packer build firstrun.pkr.hcl
 ```
 
-### Log
+## Log
 
 ```ruby
 amazon-ebs.firstrun: output will be in this color.
@@ -61,8 +61,8 @@ us-east-1: ami-0e16fbca691ae13ef
 
 ```
 
-### Results
+## Results
 
-![Results](https://github.com/levankhelo/chapter-6.1/blob/main/packer/aws-ubuntu-ami-1/pngs/res-aws-ami-1.png?raw=true)
+![Results](https://github.com/levankhelo/chapter-6.1/blob/main/packer/aws-ubuntu-ami-1/results/res-aws-ami-1.png?raw=true)
 
-![Results](https://github.com/levankhelo/chapter-6.1/blob/main/packer/aws-ubuntu-ami-1/pngs/res-aws-ami-2.png?raw=true)
+![Results](https://github.com/levankhelo/chapter-6.1/blob/main/packer/aws-ubuntu-ami-1/results/res-aws-ami-2.png?raw=true)
