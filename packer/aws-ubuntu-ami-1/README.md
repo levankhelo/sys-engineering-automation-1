@@ -63,6 +63,6 @@ us-east-1: ami-0e16fbca691ae13ef
 
 ### Results
 
-![Results](https://github.com/levankhelo/chapter-6.1/blob/master/results-aws-ami-1.png?raw=true)
+![Results](https://github.com/levankhelo/chapter-6.1/blob/main/aws-ubuntu-ami-1/pngs/results-aws-ami-1.png?raw=true)
 
-![Results](https://github.com/levankhelo/chapter-6.1/blob/master/results-aws-ami-2.png?raw=true)
+![Results](https://github.com/levankhelo/chapter-6.1/blob/main/packer/aws-ubuntu-ami-1/pngs/results-aws-ami-2.png?raw=true)
