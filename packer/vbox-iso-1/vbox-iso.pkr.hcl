@@ -11,33 +11,33 @@ source "virtualbox-iso" "LEMP" {
   
   disk_size = 15000
 
-#  headless = "true"
+#  headless = "true" # uncomment when everything is ready, so vbox will run in background
   boot_wait = "5s"
   boot_command = [
     "<enter><wait><enter><wait2><enter><wait2><enter><wait1><enter><wait1><enter><wait><enter><wait45>", # region setup
-    "<bs><bs><bs><bs><bs><bs>",       # delete hostname
-    "packer",               # enter hostname
+    "<bs><bs><bs><bs><bs><bs>",   # delete hostname
+    "packer",                     # enter hostname
     "<wait><enter><wait2><enter><wait1>",   # get to username window
-    "packer",               # input username
+    "packer",                     # input username
     "<wait><enter><wait>",        # click continue after username input
-    "packer",               # input password
+    "packer",                     # input password
     "<wait><enter><wait>",        # click continue after password input
-    "packer",               # re-type password
-    "<enter><wait2>",        # click continue after password re-type
-    "<left><enter><wait>",  # use weak password
-    "<enter><wait3>",       # do not encrypt home directory
-    "<enter><wait10>",      # timezone correct
-    "<up><enter><wait>",    # guided - use entire disk
-    "<enter><wait3>",       # disk selection
-    "<left><enter><wait65>",          # write changes to disk
-    "<enter><wait60>",      # proxy settings
-    "<enter><wait3>",       # disable automatic updates
-    "<down><down><down><down><down><down><down><down><wait><spacebar><wait><enter><wait135>", # Install OpenSSH Server and continue
+    "packer",                     # re-type password
+    "<wait><enter><wait2>",       # click continue after password re-type
+    "<wait><left><enter><wait>",  # use weak password
+    "<wait><enter><wait3>",       # do not encrypt home directory
+    "<wait><enter><wait10>",      # timezone correct
+    "<wait><up><enter><wait>",    # guided - use entire disk
+    "<wait><enter><wait3>",       # disk selection
+    "<wait><left><enter><wait65>",          # write changes to disk
+    "<wait><enter><wait70>",      # proxy settings
+    "<wait><enter><wait5>",       # disable automatic updates
+    "<wait><down><down><down><down><down><down><down><down><wait><spacebar><wait><enter><wait135>", # Install OpenSSH Server and continue
     "<wait><enter><wait30>",      # confirm that cd is removed
-    "packer",               # input username
-    "<wait><enter><wait>",       # click enter after password input
-    "packer",               # input password
-    "<wait><enter><wait>",       # click enter after password input
+    "packer",                     # input username
+    "<wait><enter><wait>",        # click enter after password input
+    "packer",                     # input password
+    "<wait><enter><wait>",        # click enter after password input
   ]
 
   shutdown_command = "echo 'packer' | sudo -S shutdown -P now"
@@ -58,39 +58,132 @@ source "virtualbox-iso" "LEMP" {
 
 build {
   sources = ["sources.virtualbox-iso.LEMP"]
+
+  # provisioner "file" {
+  #   # 
+  #   source = "transfer/mysql_setup.sh"
+  #   destination = "/home/packer/mysql_setup.sh"
+  # }
+  #
+  # provisioner "shell" {
+  #   # general configurations
+  #   inline = [
+  #     "sleep 30",
+  #     "echo packer | sudo -S apt-get update",
+  #     "echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections"
+  #     "echo debconf mysql-server/root_password password root | sudo debconf-set-selections",
+  #     "echo debconf mysql-server/root_password_again password root | sudo debconf-set-selections",
+
+  #     "echo packer | sudo -S apt-get install -y -q nginx",
+  #     "echo packer | sudo -S ufw allow 'Nginx HTTP'",
+
+  #     "echo packer | sudo -S apt-get -y -qq install mysql-server mysql-client > /dev/null",
+
+  #     "echo packer | sudo -S bash /home/packer/mysql_setup.sh --u packer --p packer",
+
+  #     "echo packer | sudo -S apt-get -y install php-fpm php-mysql",
+
+  #     "echo packer | sudo -S systemctl restart nginx.service",
+  #     "echo packer | sudo -S systemctl enable nginx.service",
+
+  #     "echo packer | sudo -S systemctl restart nginx",
+  #     "echo packer | sudo -S systemctl restart php7.0-fpm",
+
+  #     "echo packer | sudo -S mkdir /var/www/levan_domain",
+  #     "echo packer | sudo -S chown -R $USER:$USER /var/www/levan_domain"      
+
+  #   ]
+  # }
+
+  provisioner "file" {
+    source = "transfer/general_configuration.sh"
+    destination = "/home/packer/general_configuration.sh"
+  }
+
   provisioner "shell" {
+    # general configuration
     inline = [
       "sleep 30",
       "echo packer | sudo -S apt-get update",
-      "echo packer | sudo -S apt-get install -y nginx",
-      
+
+      # "echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections",
+      # "echo debconf mysql-server/root_password password root | sudo debconf-set-selections",
+      # "echo debconf mysql-server/root_password_again password root | sudo debconf-set-selections",
+
+      "echo packer | sudo -S bash /home/packer/general_configuration.sh"
+
+      # "echo packer | sudo -S debconf-set-selections <<< \"'debconf debconf/frontend select Noninteractive'\"",
+      # "echo packer | sudo -S debconf-set-selections <<< \"debconf mysql-server/root_password password root\"",
+      # "echo packer | sudo -S debconf-set-selections <<< \"mysql-server/root_password_again password root\"",
+
+    ]
+    
+  }
+
+  provisioner "shell" {
+    # ngnix
+    inline = [
+      "echo packer | sudo -S apt-get install -y -q nginx",
       "echo packer | sudo -S ufw allow 'Nginx HTTP'",
+    ]
+  }
 
-      "echo debconf mysql-server/root_password password root | sudo debconf-set-selections"
-      "echo debconf mysql-server/root_password_again password root | sudo debconf-set-selections"
+  provisioner "file" {
+    # transfer mysql interactive installer file
+    source = "transfer/mysql_setup.sh"
+    destination = "/home/packer/mysql_setup.sh"
+  }
 
-      "echo packer | sudo -S apt-get -y -qq install mysql-server > /dev/null",
+  provisioner "shell" {
+    # mysql
+    inline = [
+      "echo packer | sudo -S apt-get -y -qq install mysql-server",
+      "echo packer | sudo -s apt-get -y -qq install mysql-client",
+      "echo packer | sudo -S bash /home/packer/mysql_setup.sh -u packer -p packer",
+    ]
+  }
 
-      "mysql_secure_installation"
-
-
+  provisioner "shell" {
+    # php
+    inline = [
       "echo packer | sudo -S apt-get -y install php-fpm php-mysql",
+    ]
+  }
 
+  provisioner "shell" {
+    # restarts
+    inline = [
       "echo packer | sudo -S systemctl stop nginx.service",
       "echo packer | sudo -S systemctl start nginx.service",
       "echo packer | sudo -S systemctl enable nginx.service",
-
       "echo packer | sudo -S systemctl restart nginx",
       "echo packer | sudo -S systemctl restart php7.0-fpm",
-
-      "echo packer | sudo -S mkdir /var/www/levan_domain"
-      "echo packer | sudo -S chown -R $USER:$USER /var/www/levan_domain"
-      
-      
-
-      
-
     ]
   }
+
+  provisioner "shell" {
+    # domain handling
+    inline = [
+      "echo packer | sudo -S mkdir /var/www/levan_domain",
+      "echo packer | sudo -S chown -R $USER:$USER /var/www/levan_domain"  
+    ]
+  }
+
+  provisioner "file" {
+    # transfer domain file
+    source = "transfer/levan_domain"
+    destination = "/etc/nginx/sites-available/levan_domain"
+  }
+
+  provisioner "shell" {
+    # update available sites and restart service
+    inline = [
+      "echo packer | sudo -S ln -s /etc/nginx/sites-available/levan_domain /etc/nginx/sites-enabled/",
+      "echo packer | sudo -S systemctl restart nginx"
+    ]
+  }
+
+
+
 }
 
