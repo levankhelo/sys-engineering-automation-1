@@ -98,6 +98,7 @@ build {
   provisioner "file" {
     source = "transfer/general_configuration.sh"
     destination = "/home/packer/general_configuration.sh"
+  
   }
 
   provisioner "shell" {
@@ -110,6 +111,7 @@ build {
       # "echo debconf mysql-server/root_password password root | sudo debconf-set-selections",
       # "echo debconf mysql-server/root_password_again password root | sudo debconf-set-selections",
 
+      
       "echo packer | sudo -S bash /home/packer/general_configuration.sh"
 
       # "echo packer | sudo -S debconf-set-selections <<< \"'debconf debconf/frontend select Noninteractive'\"",
@@ -155,7 +157,7 @@ build {
     inline = [
       "echo packer | sudo -S systemctl stop nginx.service",
       "echo packer | sudo -S systemctl start nginx.service",
-      "echo packer | sudo -S systemctl enable nginx.service",
+      # "echo packer | sudo -S systemctl enable nginx.service",
       "echo packer | sudo -S systemctl restart nginx",
       "echo packer | sudo -S systemctl restart php7.0-fpm",
     ]
@@ -172,12 +174,13 @@ build {
   provisioner "file" {
     # transfer domain file
     source = "transfer/levan_domain"
-    destination = "/etc/nginx/sites-available/levan_domain"
+    destination = "/home/packer/levan_domain"
   }
 
   provisioner "shell" {
     # update available sites and restart service
     inline = [
+      "echo packer | sudo -S cp /home/packer/levan_domain /etc/nginx/sites-available/levan_domain",
       "echo packer | sudo -S ln -s /etc/nginx/sites-available/levan_domain /etc/nginx/sites-enabled/",
       "echo packer | sudo -S systemctl restart nginx"
     ]
