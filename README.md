@@ -1,5 +1,5 @@
 
-# chapter-6.1
+# chapter-6
 
 Big Data - DevOps training chapter 6
 
