@@ -34,7 +34,7 @@ LEMP stack includes:
 
 ![Results](https://github.com/levankhelo/chapter-6.1/blob/main/packer/vbox-iso-1/artifacts/linux-3.png?raw=true)
 
-### Ngnix (EnginX)
+### Nginx (EnginX)
 
 ![Results](https://github.com/levankhelo/chapter-6.1/blob/main/packer/vbox-iso-1/artifacts/nginx.png?raw=true)
 
