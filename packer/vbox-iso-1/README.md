@@ -18,8 +18,32 @@ packer build vbox-iso.pkr.hcl
 
 ## Results from VDI
   
-Following commands are executed in provisioned virtual box image (built with packer) and results are provided as proof of successfull installation of LEMP
+Following commands are executed in provisioned virtual box image (built with packer) and results are provided as proof of successfull installation of LEMP stack.  
 
-### php
+LEMP stack includes:  
+- Linux
+- NginX (*Engine-X*)
+- MySQL
+- PHP
+
+### Linux
+
+![Results](https://github.com/levankhelo/chapter-6.1/blob/main/packer/vbox-iso-1/artifacts/linux-1.png?raw=true)
+
+![Results](https://github.com/levankhelo/chapter-6.1/blob/main/packer/vbox-iso-1/artifacts/linux-2.png?raw=true)
+
+![Results](https://github.com/levankhelo/chapter-6.1/blob/main/packer/vbox-iso-1/artifacts/linux-3.png?raw=true)
+
+### Ngnix (EnginX)
+
+![Results](https://github.com/levankhelo/chapter-6.1/blob/main/packer/vbox-iso-1/artifacts/nginx.png?raw=true)
+
+### MySql
+
+![Results](https://github.com/levankhelo/chapter-6.1/blob/main/packer/vbox-iso-1/artifacts/mysql.png?raw=true)
+
+### PHP
+
+![Results](https://github.com/levankhelo/chapter-6.1/blob/main/packer/vbox-iso-1/artifacts/php.png?raw=true)
 
 
