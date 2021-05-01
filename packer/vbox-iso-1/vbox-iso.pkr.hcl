@@ -104,15 +104,19 @@ build {
   provisioner "shell" {
     # general configuration
     inline = [
+      "echo --------------------1",
       "sleep 30",
+      "echo --------------------2",
       "echo packer | sudo -S apt-get update",
+      "echo --------------------3",
 
       # "echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections",
       # "echo debconf mysql-server/root_password password root | sudo debconf-set-selections",
       # "echo debconf mysql-server/root_password_again password root | sudo debconf-set-selections",
 
-      
-      "echo packer | sudo -S bash /home/packer/general_configuration.sh"
+      "echo --------------------4",
+      "echo packer | sudo -S bash /home/packer/general_configuration.sh",
+      "echo --------------------5",
 
       # "echo packer | sudo -S debconf-set-selections <<< \"'debconf debconf/frontend select Noninteractive'\"",
       # "echo packer | sudo -S debconf-set-selections <<< \"debconf mysql-server/root_password password root\"",
@@ -125,8 +129,11 @@ build {
   provisioner "shell" {
     # ngnix
     inline = [
+      "echo --------------------6",
       "echo packer | sudo -S apt-get install -y -q nginx",
+      "echo --------------------7",
       "echo packer | sudo -S ufw allow 'Nginx HTTP'",
+      "echo --------------------8",
     ]
   }
 
@@ -139,8 +146,11 @@ build {
   provisioner "shell" {
     # mysql
     inline = [
+      "echo --------------------9",
       "echo packer | sudo -S apt-get -y -qq install mysql-server",
+      "echo --------------------10",
       "echo packer | sudo -s apt-get -y -qq install mysql-client",
+      "echo --------------------11",
       "echo packer | sudo -S bash /home/packer/mysql_setup.sh -u packer -p packer",
     ]
   }
@@ -148,6 +158,7 @@ build {
   provisioner "shell" {
     # php
     inline = [
+      "echo --------------------12",
       "echo packer | sudo -S apt-get -y install php-fpm php-mysql",
     ]
   }
@@ -155,19 +166,27 @@ build {
   provisioner "shell" {
     # restarts
     inline = [
+      "echo --------------------13",
       "echo packer | sudo -S systemctl stop nginx.service",
+      "echo --------------------14",
       "echo packer | sudo -S systemctl start nginx.service",
+      "echo --------------------15",
       # "echo packer | sudo -S systemctl enable nginx.service",
       "echo packer | sudo -S systemctl restart nginx",
+      "echo --------------------16",
       "echo packer | sudo -S systemctl restart php7.0-fpm",
+      "echo --------------------17",
     ]
   }
 
   provisioner "shell" {
     # domain handling
     inline = [
+      "echo --------------------18",
       "echo packer | sudo -S mkdir /var/www/levan_domain",
-      "echo packer | sudo -S chown -R $USER:$USER /var/www/levan_domain"  
+      "echo --------------------19",
+      "echo packer | sudo -S chown -R $USER:$USER /var/www/levan_domain",  
+      "echo --------------------20",
     ]
   }
 
@@ -180,9 +199,13 @@ build {
   provisioner "shell" {
     # update available sites and restart service
     inline = [
+      "echo --------------------21",
       "echo packer | sudo -S cp /home/packer/levan_domain /etc/nginx/sites-available/levan_domain",
+      "echo --------------------22",
       "echo packer | sudo -S ln -s /etc/nginx/sites-available/levan_domain /etc/nginx/sites-enabled/",
-      "echo packer | sudo -S systemctl restart nginx"
+      "echo --------------------23",
+      "echo packer | sudo -S systemctl restart nginx",
+      "echo --------------------23",
     ]
   }
 
