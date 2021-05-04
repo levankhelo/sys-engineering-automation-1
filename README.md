@@ -4,7 +4,7 @@
 Big Data - DevOps training chapter 6
 
 
-Table of contents:
+### Table of contents:
 - [Installations](https://github.com/levankhelo/chapter-6#installations)
     - [Ansible](https://github.com/levankhelo/chapter-6#step-1-installing-ansible)
     - [Packer](https://github.com/levankhelo/chapter-6#step-2-installing-packer)
