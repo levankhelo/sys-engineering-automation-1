@@ -3,6 +3,25 @@
 
 Big Data - DevOps training chapter 6
 
+
+Table of contents:
+- [Installations](https://github.com/levankhelo/chapter-6#installations)
+    - [Ansible](https://github.com/levankhelo/chapter-6#step-1-installing-ansible)
+    - [Packer](https://github.com/levankhelo/chapter-6#step-2-installing-packer)
+    - [Terraform](https://github.com/levankhelo/chapter-6#step-3-installing-terraform)
+    - [Summary](https://github.com/levankhelo/chapter-6#summary)
+- [Environments and Networks](https://github.com/levankhelo/chapter-6#environment--connections) 
+  - [General](https://github.com/levankhelo/chapter-6#general)
+    - [Setup](https://github.com/levankhelo/chapter-6#setup)
+    - [SSH key generation](https://github.com/levankhelo/chapter-6#generate-ssh-keys-for-connection)
+- [Ansible](https://github.com/levankhelo/chapter-6#ansible)
+  - [Configuration](https://github.com/levankhelo/chapter-6#configuration)
+  - [Naming nodes](https://github.com/levankhelo/chapter-6#naming-slave-nodes)
+  - [Commands](https://github.com/levankhelo/chapter-6#commands)
+  - [Grouping nodes](https://github.com/levankhelo/chapter-6#grouping-devices)
+  
+
+
 # Installations
 
 First things first! let's update our repositories and see what packages we have!  
