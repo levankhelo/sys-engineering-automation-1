@@ -19,9 +19,23 @@ Big Data - DevOps training chapter 6
   - [Naming nodes](https://github.com/levankhelo/chapter-6#naming-slave-nodes)
   - [Commands](https://github.com/levankhelo/chapter-6#commands)
   - [Grouping nodes](https://github.com/levankhelo/chapter-6#grouping-devices)
-  
 
 
+### Sub-Directories
+- [Ansible](https://github.com/levankhelo/chapter-6/tree/main/ansible)
+    - [About](https://github.com/levankhelo/chapter-6#ansible)
+    - [Training Sample](https://github.com/levankhelo/chapter-6/tree/main/ansible/config-1)
+      - [First Configuration](https://github.com/levankhelo/chapter-6/blob/main/ansible/config-1/host-conf)
+- [Packer](https://github.com/levankhelo/chapter-6/tree/main/packer)
+  - [AWS](https://github.com/levankhelo/chapter-6/tree/main/packer/aws-ubuntu-ami-1)
+    - [Configuration](https://github.com/levankhelo/chapter-6/blob/main/packer/aws-ubuntu-ami-1/aws-ami.pkr.hcl)
+    - [Execution results](https://github.com/levankhelo/chapter-6/tree/main/packer/aws-ubuntu-ami-1)
+  - [VirtualBox](https://github.com/levankhelo/chapter-6/tree/main/packer/vbox-iso-1)
+    - [Configuration](https://github.com/levankhelo/chapter-6/blob/main/packer/vbox-iso-1/vbox-iso.pkr.hcl)
+      - [Transferred Files](https://github.com/levankhelo/chapter-6/tree/main/packer/vbox-iso-1/transfer)
+    - [Execution results](https://github.com/levankhelo/chapter-6/blob/main/packer/vbox-iso-1/README.md#execution-results)
+
+    
 # Installations
 
 First things first! let's update our repositories and see what packages we have!  
