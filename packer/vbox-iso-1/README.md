@@ -28,22 +28,22 @@ LEMP stack includes:
 
 ### Linux
 
-![Results](https://github.com/levankhelo/chapter-6/blob/main/packer/vbox-iso-1/artifacts/linux-1.png?raw=true)
+![Results](https://github.com/levankhelo/sys-engineering-automation-1/blob/main/packer/vbox-iso-1/artifacts/linux-1.png?raw=true)
 
-![Results](https://github.com/levankhelo/chapter-6/blob/main/packer/vbox-iso-1/artifacts/linux-2.png?raw=true)
+![Results](https://github.com/levankhelo/sys-engineering-automation-1/blob/main/packer/vbox-iso-1/artifacts/linux-2.png?raw=true)
 
-![Results](https://github.com/levankhelo/chapter-6/blob/main/packer/vbox-iso-1/artifacts/linux-3.png?raw=true)
+![Results](https://github.com/levankhelo/sys-engineering-automation-1/blob/main/packer/vbox-iso-1/artifacts/linux-3.png?raw=true)
 
 ### Nginx (EnginX)
 
-![Results](https://github.com/levankhelo/chapter-6/blob/main/packer/vbox-iso-1/artifacts/nginx.png?raw=true)
+![Results](https://github.com/levankhelo/sys-engineering-automation-1/blob/main/packer/vbox-iso-1/artifacts/nginx.png?raw=true)
 
 ### MySql
 
-![Results](https://github.com/levankhelo/chapter-6/blob/main/packer/vbox-iso-1/artifacts/mysql.png?raw=true)
+![Results](https://github.com/levankhelo/sys-engineering-automation-1/blob/main/packer/vbox-iso-1/artifacts/mysql.png?raw=true)
 
 ### PHP
 
-![Results](https://github.com/levankhelo/chapter-6/blob/main/packer/vbox-iso-1/artifacts/php.png?raw=true)
+![Results](https://github.com/levankhelo/sys-engineering-automation-1/blob/main/packer/vbox-iso-1/artifacts/php.png?raw=true)
 
 
