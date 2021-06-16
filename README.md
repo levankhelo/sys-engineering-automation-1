@@ -1,7 +1,7 @@
 
 # sys-engineering-automation-1
 
-Big Data - DevOps training chapter 6
+Multiple instance manipulation using Ansible
 
 
 ### Table of contents:
